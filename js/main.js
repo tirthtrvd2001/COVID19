@@ -336,11 +336,6 @@ $(document).ready(function () {
                         display: true,
                         ticks: {
                             maxTicksLimit: 10,
-                            callback: function(label, index, labels) {
-                                if(label == 0) label = "0";
-                                else label = (((label.toString()).slice(0,-3)) + 'k');
-                                return label;
-                            },
                             padding: 10
                         }
                     }]
@@ -631,11 +626,6 @@ $(document).ready(function () {
                         display: true,
                         ticks: {
                             maxTicksLimit: 10,
-                            callback: function(label, index, labels) {
-                                if(label == 0) label = "0";
-                                else label = (((label.toString()).slice(0,-3)) + 'k');
-                                return label;
-                            },
                             padding: 10
                         }
                     }]
@@ -798,6 +788,39 @@ $(document).ready(function () {
                 }
             });
            }
+           else{
+               var state = $("select option:selected").text();
+           $('#doughnut').show().siblings().hide();
+           $('#doughnut').remove();
+           $('#bar').after('<canvas id="doughnut"></canvas>');
+           $('.btn-wrap .line').addClass('active').siblings().removeClass('active');
+           $('.btn-wrap').css({'opacity': 0.5 , 'pointer-events': 'none'});
+               
+           var ctx = document.getElementById("doughnut").getContext('2d');
+           var myChartDoughnut = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    label: 'Colors',
+                    data: [confirmed[states.indexOf(state)], recovered[states.indexOf(state)],
+                   active[states.indexOf(state)], deaths[states.indexOf(state)]],
+                    backgroundColor: ["#0074D9", "#28a745", "#ffc107", "#dc3545"]
+                }],
+                labels: ['Total Cases','Recovered','Active','Deaths']
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                responsive: true,
+                title:{
+                    display: true,
+                    text: "Data of " + state,
+                    fontSize: 14
+                }
+            }
+        });
+        }
             });
         }
         
@@ -806,7 +829,7 @@ $(document).ready(function () {
 // ==================== JSON COmplete ====================
     
     ScrollOut({
-    targets: '.img-container, div'
+    targets: '.img-container, .block-1 div, .block-2 div, .block-3 div, .block-4 div, .block-5 div, .stats-block div, .book-test-block div'
     });
     
     $( ".btn-red" ).click(function( event ) {
