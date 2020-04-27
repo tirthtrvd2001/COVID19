@@ -82,9 +82,24 @@
                             <select class="select col-12 col-lg-5 col-xl-4 mr-lg-5">
                                 <optgroup label="India">
                                     <option selected>India</option>
-                                    <option>Maharashtra</option>
+                                    <option>Delhi</option>
+                                     <option>Maharashtra</option>
                                     <option>Gujarat</option>
+                                    <option>Rajasthan</option>
                                     <option>Kerala</option>
+                                    <option>Madhya Pradesh</option>
+                                    <option>Uttar Pradesh</option>
+                                    <option>Punjab</option>
+                                    <option>Haryana</option>
+                                    <option>Jammu and Kashmir</option>
+                                    <option>Ladakh</option>
+                                    <option>Uttarakhand</option>
+                                    <option>Himachal Pradesh</option>
+                                    <option>West Bengal</option>
+                                    <option>Tamil Nadu</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Telangana</option>
+                                    <option>Chhattisgarh</option>
                                 </optgroup>
                             </select>
                             <div class="search col-12 col-lg-5 col-xl-4 d-flex align-items-center ml-lg-5 mt-4 mt-lg-0 ">
@@ -100,10 +115,12 @@
                                     Recovered
                                 </div>
                                 <div class="btn-wrap d-none d-md-flex justify-content-center mb-3 align-self-start">
-                                    <button class="btn line mr-2 active">Line</button>
-                                    <button class="btn bar">Bar</button>
+                                    <button class="btn line mr-2 active">Total Cases (Line)</button>
+                                    <button class="btn bar">Total Cases (Bar)</button>
+                                    <button class="btn daily">Daily Confirmed Cases</button>
                                 </div>
                                 <canvas id="line"></canvas>
+                                <canvas id="line-daily"></canvas>
                                 <canvas id="bar"></canvas>
                                 <canvas id="doughnut"></canvas>
                             </div>
@@ -173,7 +190,7 @@
                     </svg>
                     <image href="images/corona.png" class="rotate-virus2" style="height: 15%; width: 15%;" transform="translate(450, 410)" opacity=".7"/>
                     <image href="images/corona.png" class="rotate-virus3" style="height: 22%; width: 22%;" transform="translate(80, 270)" opacity=".9"/>
-                    <image href="images/Symptoms%20v2-01.png" style="width: 100%; height: 100%;"/>
+                    <image href="images/Symptoms%20v2-02.png" style="width: 100%; height: 100%;"/>
                     <polyline points="148,67 253,67 320,100" style="fill: none; stroke: rgb(200,50,65); stroke-width: 1.25; stroke-dasharray: 1000; stroke-dashoffset: 1000"/>
                     <polyline points="155,185 230,185 340,110" style="fill: none; stroke: rgb(200,50,65); stroke-width: 1.25; stroke-dasharray: 1000; stroke-dashoffset: 1000"/>
                     <polyline points="500,31 420,31 370,58" style="fill: none; stroke: rgb(200,50,65); stroke-width: 1.25; stroke-dasharray: 1000; stroke-dashoffset: 1000"/>
@@ -280,7 +297,7 @@
                                 <img src="images/seek%20medical%20help-01.png" width="100%">
                             </div>
                             <div class="col-7 col-sm-8 d-flex flex-column justify-content-center align-items-center font-theme-bold">
-                                <div class="h5">HIDE FROM</div>
+                                <div class="h5">SEEK</div>
                                 <div class="h5">MEDICAL CARE</div>
                             </div>
                         </div>
