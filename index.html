@@ -280,7 +280,7 @@
                                 <img src="images/seek%20medical%20help-01.png" width="100%">
                             </div>
                             <div class="col-7 col-sm-8 d-flex flex-column justify-content-center align-items-center font-theme-bold">
-                                <div class="h5">SEEK</div>
+                                <div class="h5">HIDE FROM</div>
                                 <div class="h5">MEDICAL CARE</div>
                             </div>
                         </div>
