@@ -610,6 +610,9 @@ svg circle, svg text{opacity: 0; transition: .4s ease;}
         background-repeat: no-repeat;
         background-position: bottom center;
     }
+    .stats .graph, .stats .case-info{
+        background: rgba(255,255,255,.80);
+    }
     .stats-block .case-info{
         order: -1;
         box-shadow: none;
