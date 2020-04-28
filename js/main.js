@@ -252,6 +252,9 @@ $(document).ready(function () {
                 responsive: true,
                 scales: {
                     xAxes: [{
+                        gridLines: {
+                            display: false
+                        },
                         ticks: {
                             maxTicksLimit: 8,
                             callback: function(label, index, labels) {
@@ -549,6 +552,9 @@ $(document).ready(function () {
                     responsive: true,
                     scales: {
                         xAxes: [{
+                            gridLines: {
+                                display: false
+                            },
                             ticks: {
                                 maxTicksLimit: 8,
                                 callback: function(label, index, labels) {
