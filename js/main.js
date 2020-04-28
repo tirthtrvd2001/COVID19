@@ -57,7 +57,7 @@ $(document).ready(function () {
         var date_recovered = [];
         var date_deceased = [];
         
-        $.each(data.cases_time_series.slice(-14), function (id, obj) {
+        $.each(data.cases_time_series.slice(-21), function (id, obj) {
             dates.push(obj.date);
             date_daily_confirmed.push(obj.dailyconfirmed);
             date_confirmed.push(obj.totalconfirmed);
@@ -231,21 +231,21 @@ $(document).ready(function () {
                         label: "Total Cases",
                         lineTension: 0,
                         borderColor: "rgb(232,80,91)",
-                        borderWidth : 3,
+                        borderWidth : 2,
                         pointBackgroundColor: "rgb(232,80,91)",
                         fill: "start",
                         backgroundColor: "rgba(232,80,91," + chartOpacity + ")" 
                     },
                     {
-                            data: date_recovered,
-                            label: "Recovered",
-                            lineTension: 0,
-                            borderColor: "rgb(40,170,70)",
-                            borderWidth : 3,
-                            pointBackgroundColor: "rgb(40,170,70)",
-                            fill: "start",
-                            backgroundColor: "rgba(40,170,70," + chartOpacity + ")" 
-                        }
+                        data: date_recovered,
+                        label: "Recovered",
+                        lineTension: 0,
+                        borderColor: "rgb(40,170,70)",
+                        borderWidth : 2,
+                        pointBackgroundColor: "rgb(40,170,70)",
+                        fill: "start",
+                        backgroundColor: "rgba(40,170,70," + chartOpacity + ")" 
+                    }
                 ]
             },
             options: {
@@ -689,8 +689,10 @@ $(document).ready(function () {
         }); 
         
         if(window.innerWidth < 576){
-            var ctx = document.getElementById("line").getContext('2d');
-
+            myChartLine.destroy();
+            $('#mob-line').show().siblings().hide();
+            
+            var ctx = document.getElementById("mob-line").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -701,6 +703,8 @@ $(document).ready(function () {
                             label: "Total Cases",
                             lineTension: 0,
                             borderColor: "rgb(232,80,91)",
+                            borderWidth: 1.5,
+                            pointRadius: 1.5,
                             pointBackgroundColor: "rgb(232,80,91)",
                             fill: false
                         },
@@ -709,6 +713,8 @@ $(document).ready(function () {
                             label: "Recovered",
                             lineTension: 0,
                             borderColor: "rgb(40,170,70)",
+                            borderWidth: 1.5,
+                            pointRadius: 1.5,
                             pointBackgroundColor: "rgb(40,170,70)",
                             fill: false
                         }
@@ -734,11 +740,12 @@ $(document).ready(function () {
                         yAxes: [{
                             display: true,
                             gridLines: {
-                                display: false
+                                display: false,
                             },
                             ticks: {
-                                maxTicksLimit: 10,
-                                display: false
+                                maxTicksLimit: 7,
+                                display: false,
+                                fontSize: 9
                             }
                         }]
                     }
@@ -749,12 +756,12 @@ $(document).ready(function () {
 
            if($('select option:selected').text() === 'India'){
             $('.btn-wrap').css({'opacity' : 1, 'pointer-events': 'all'});
+            $('#mob-line').show().siblings().hide(); 
+               
             var chartType = "line";
-            var chartOpacity = ".15";
+            var chartOpacity = ".15"; 
             
-            $('#line').show().siblings().hide();
-            var ctx = document.getElementById("line").getContext('2d');
-
+            var ctx = document.getElementById("mob-line").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -765,6 +772,8 @@ $(document).ready(function () {
                             label: "Total Cases",
                             lineTension: 0,
                             borderColor: "rgb(232,80,91)",
+                            borderWidth: 1.5,
+                            pointRadius: 1.5,
                             pointBackgroundColor: "rgb(232,80,91)",
                             fill: false
                         },
@@ -773,6 +782,8 @@ $(document).ready(function () {
                             label: "Recovered",
                             lineTension: 0,
                             borderColor: "rgb(40,170,70)",
+                            borderWidth: 1.5,
+                            pointRadius: 1.5,
                             pointBackgroundColor: "rgb(40,170,70)",
                             fill: false
                         }
@@ -801,7 +812,7 @@ $(document).ready(function () {
                                 display: false
                             },
                             ticks: {
-                                maxTicksLimit: 10,
+                                maxTicksLimit: 8,
                                 display: false
                             }
                         }]
@@ -818,6 +829,7 @@ $(document).ready(function () {
            $('.btn-wrap').css({'opacity': 0.5 , 'pointer-events': 'none'});
                
            var ctx = document.getElementById("doughnut").getContext('2d');
+           myChartDoughnut    
            var myChartDoughnut = new Chart(ctx, {
             type: 'doughnut',
             data: {
