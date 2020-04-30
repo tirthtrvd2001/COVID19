@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Home | COVID-19</title>
+        <link rel="icon" href="images/fav-icon.png">
+        
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+        <link rel="stylesheet" href="css/bootstrap-grid.min.css" type="text/css">
+        <link rel="stylesheet" href="css/all.css" type="text/css">
+        <link rel="stylesheet" href="css/Chart.css" type="text/css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="css/graphics.css" type="text/css">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn t work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/Chart.bundle.min.js"></script>
+		<script src="js/scroll-out.js"></script>
+		<script src="js/graphics.js"></script>
+	</head>
+	<body>
+	<div class="preloader-container">
+	    <div class="preloader" style="display: none"></div>
+	</div>
+	<!------------------- NAVBAR ------------------->
+		<header>
+		    <nav class="navbar px-md-0 navbar-expand-lg navbar-light bg-light" id="ftco-navbar">
+                <div class="container-fluid d-flex justify-content-between">
+                    <a href="index.html" class="navbar-brand">Corona</a>
+
+                    <div class="collapse navbar-collapse" id="ftco-nav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a href="index.html" class="nav-link">Corona</a></li>
+                            <li class="nav-item"><a href="#stats" class="nav-link active">Statistics</a></li>
+                            <li class="nav-item"><a href="questions.html" class="nav-link">FAQs</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="navbar-access mr-0">
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-white">Call - 1075</button>
+                        </li>
+                    </div>
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-expanded="false">
+                        <span class="fas fa-bars"></span>
+                    </button>
+                </div>
+            </nav>
+		</header>
+   
+        <div class="container-fluid">
+            <div class="row flex-column">
+                <div class="case-info col-12 col-md-10 col-lg-8 col-xl-6 d-flex justify-content-between align-items-center font-theme-semibold px-3 px-sm-5 px-lg-4 px-xl-5 p-3 mb-4">
+                    <div class="text-left text-info ml-xl-4">
+                        <div class="h6">Total cases</div>
+                        <div class="h5 total"></div>
+                    </div>
+                    <div class="text-left text-warning">
+                        <div class="h6">Active cases</div>
+                        <div class="h5 active"></div>
+                    </div>
+                    <div class="text-left text-success">
+                        <div class="h6">Recovered</div>
+                        <div class="h5 recovered"></div>
+                    </div>
+                    <div class="text-left text-danger">
+                        <div class="h6">Deceased</div>
+                        <div class="h5 deaths"></div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-sm-around align-items-stretch flex-wrap block-1">
+                    <div class="col-11 col-sm-12 col-lg-8 col-xl-6 px-2 px-md-3 px-lg-4 px-xl-3 line">
+                    <div class="d-flex flex-column">
+                        <div class="h5 heading text-left font-theme-bold color-grey px-2 my-3">Total Cases Timeline - India</div>
+                        <div class="line-graph py-3 col-12 px-0 px-md-3 px-lg-0 px-xl-3">
+                            <canvas id="line"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 col-lg-3 col-xl-4 px-0 px-sm-3 px-lg-0 px-xl-4 mt-5 mt-lg-0 d-flex flex-column doughnut">
+                    <div class="h5 heading text-center font-theme-bold color-grey px-2 pr-lg-3 px-xl-2 my-3">Case Rates</div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="doughnut-graph py-3">
+                        <canvas id="doughnut"></canvas>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="d-flex justify-content-around align-items-stretch mt-5 flex-wrap block-2">
+                    <div class="col-11 col-md-10 col-xl-6 px-0 px-md-3 px-lg-4 state-table mt-5 pt-4 pt-lg-0">
+                        <div class="h5 heading color-grey font-theme-bold text-left mb-4">Indian States COVID-19 Data</div>
+                        <div class="d-flex justify-content-start">
+                            <table>
+                            <thead class="color-grey font-theme-bold text-left bg-light">
+                                <th class="text-left pl-2 py-1">States</th>
+                                <th class="text-right pl-5 py-1">Confirmed</th>
+                                <th class="text-right pl-5 py-1">Active</th>
+                                <th class="text-right pl-5 py-1">Recovered</th>
+                                <th class="text-right pl-5 pr-2 py-1">Deceased</th>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    <div class="col-11 col-sm-12 col-lg-8 col-xl-5 pl-0 pl-sm-4 d-flex flex-column mt-5 pt-md-4 pt-lg-0 graphs">
+                        <div class="h5 heading text-left font-theme-bold color-grey px-2 mb-3">Daily Confirmed Cases</div>
+                        <div class="line-graph py-3 mb-5">
+                            <canvas id="daily-con-line"></canvas>
+                        </div>
+                        <div class="h5 heading text-left font-theme-bold color-grey px-2 mt-md-5 mb-3">Daily Recovered Cases</div>
+                        <div class="line-graph py-3 mb-5">
+                            <canvas id="daily-recover-line"></canvas>
+                        </div>
+                        <div class="h5 heading text-left font-theme-bold color-grey px-2 mt-lg-5 mb-3">Daily Deceased Cases</div>
+                        <div class="line-graph py-3 mb-5">
+                            <canvas id="daily-death-line"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="font-theme-semibold hi"></div>
+            </div>
+        </div>
+    </body>
+</html>
