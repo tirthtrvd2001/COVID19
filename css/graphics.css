@@ -1,0 +1,107 @@
+.preloader-container{
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white !important;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+.preloader{
+    display: block;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 5px rgb(232,80,91);
+    border-left-color: transparent;
+    border-top: none;
+    animation: preload 1s infinite linear;
+}
+
+@keyframes preload{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+table .new-state{border-collapse: separate; border-spacing: 0 .2rem;}
+table tr td{font-size: 14px}
+table tr td:first-of-type, th:first-of-type{border-radius: 5px 0 0 5px;}
+table tr td:last-of-type, th:last-of-type{border-radius: 0 5px 5px 0;}
+table tr td:not(:first-of-type){letter-spacing: .8px; padding-right: 2px;}
+table tr .state span.fa{
+    position: absolute;
+    text-align: center;
+    left: -10px;
+    line-height: 22px;
+    height: 22px;
+    width: 22px;
+    background: rgba(0,0,0,.05);
+    border-radius: 50%;
+    
+}
+table small{font-size: 10.5px;}
+
+table tr.state-dist{transform: translateX(1rem)}
+
+@media screen and (min-width: 1800px){
+    table th, table tr.new-state td:not(:first-of-type){padding-left: 80px !important;}
+    canvas#doughnut{
+        transform: scale(1.3) translateY(-5px);
+        transform-origin: top center;
+    }
+}
+
+@media screen and (max-width: 1199.98px){
+    canvas#doughnut{
+        transform: scale(.75) translateY(-5px);
+        transform-origin: top;
+    }
+}
+
+@media screen and (max-width: 991.98px){
+    canvas#doughnut{
+        margin-top: 120px;
+        transform-origin: top;
+    }
+}
+
+@media screen and (max-width: 767.98px){
+    table{transform: translateX(1rem)}
+    table tr.new-state .fa{transform: translateX(-1.2rem)}
+}
+
+@media screen and (max-width: 650px){
+    table{
+        transform-origin: left top;
+    }
+    table th:nth-of-type(1), table tr td:nth-of-type(1){
+        column-span: 3 !important;
+    }
+    table th:not(:nth-of-type(1)), table tr.new-state td:not(:nth-of-type(1)){
+        padding-left: 25px !important
+    }
+    
+}
+
+@media screen and (max-width: 475px){
+    canvas#doughnut{transform: scale(.6) translateY(35px);}
+    
+    .block-2{margin-top: 0px !important;}
+    
+    .block-2 .graphs{
+        margin-left: -20px;
+    }
+    .block-2 .line-graph{
+        transform-origin: top left;
+    }
+}
+
