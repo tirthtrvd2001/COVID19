@@ -21,6 +21,11 @@ $(document).ready(function(){
     if(window.innerWidth < 475){
         $('.block-1 ,line, .block-1 .doughnut').css({'flex': '0 0 ' + (window.innerWidth/475)*475 +'px', 'max-width': window.innerWidth/475*475 +'px' });
         
+        $('.block-2 table th').eq(1).text('Cnfmd');
+        $('.block-2 table th').eq(2).text('Actv');
+        $('.block-2 table th').eq(3).text('Rcvrd');
+        $('.block-2 table th').eq(4).text('Dcsd');
+        
         $('.block-2 .line-graph').css('transform', 'scale('+ (window.innerWidth/470) +')');
     }
     console.log($('table').height());
@@ -398,18 +403,25 @@ $(document).ready(function(){
         }
         
 // =================== RATES DOUGHNUT CHART =================== 
-        
+        var fn_ctr = 0
         function doughnut_chart(state){
+            fn_ctr++;
             if(state == "Total"){
                 $('.doughnut-graph').parent().siblings('.heading').text('Case Rates - India');
             }
             else{
                 $('.doughnut-graph').parent().siblings('.heading').text('Case Rates - ' + state);
             }
-            
-            $('#doughnut').remove();
+            var Y = fn_ctr*55;
+            if(fn_ctr > 5) Y = 275;
+            var tableY = Y-55;
+            $('#doughnut').parent().children().remove();
             $('.doughnut-graph').append('<canvas id="doughnut"></canvas>');
             
+            if(window.innerWidth < 475){
+                $('canvas#doughnut').css('transform', 'scale(.6) translateY('+ Y +'px)');
+                $('table').parent().parent().css('transform', 'translateY('+ tableY +'px)')
+            }
            $('.doughnut-graph').parent().height(($('.doughnut-graph').parent().parent().height()) - ($('#doughnut').parent().parent().siblings('.heading').height()) - 100);
             
            var ctx = document.getElementById("doughnut").getContext('2d');
