@@ -977,6 +977,10 @@ $(document).ready(function(){
                 $(this).parents('tr').nextAll('.state-dist').remove();
                 $(this).siblings('.state-name').removeClass('font-theme-bold');
                 $(this).parents('tr').removeClass('bg-light');
+                
+                if(window.innerWidth < 475){
+                    $('.block-2 .graphs').css('transform', 'translateY(-500px)');
+                }
             }
             else{
                 
@@ -1024,6 +1028,10 @@ $(document).ready(function(){
                 }
                 doughnut_chart(state);
                 daily_charts(state_code);
+                
+                if(window.innerWidth < 475){
+                    $('.block-2 .graphs').css('transform', 'translateY( -'+ ($('table').height()*(.9 - (window.innerWidth/590))) +'px)');
+                }
             }
         });
        
