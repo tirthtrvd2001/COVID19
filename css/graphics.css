@@ -93,9 +93,13 @@ table tr.state-dist{transform: translateX(1rem)}
 }
 
 @media screen and (max-width: 475px){
-    canvas#doughnut{transform: scale(.6) translateY(35px);}
+    canvas#doughnut{transform: scale(.6) translateY(55px);}
     
     .block-2{margin-top: 0px !important;}
+    
+    .block-2 table td{font-size: 18px}
+    .block-2 table th{font-size: 20px}
+    .block-2 table .state-dist td:nth-of-type(2), .block-2 table th:nth-of-type(2){padding-left: 50px !important}
     
     .block-2 .graphs{
         margin-left: -20px;
