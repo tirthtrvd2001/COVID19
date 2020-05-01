@@ -875,7 +875,7 @@ $(document).ready(function () {
         event.preventDefault();
         $("html, body").animate({ scrollTop: $($(this).data("href")).offset().top }, 800, 'swing');
     });
-    $( ".navbar a" ).not(':last').click(function( event ) {
+    $( ".navbar a.hash" ).click(function( event ) {
         event.preventDefault();
         $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 800, 'swing');
     });
