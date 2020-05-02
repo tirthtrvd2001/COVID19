@@ -471,10 +471,19 @@ $(document).ready(function(){
             if(jsonObject['state'] == state)
                 return jsonObject;
         }
+        var delta = '';
+        function difference(number){
+            if(number > 0){
+                delta = '<small class="color-theme"><i class="fa fa-arrow-up"></i>'+ number +'</small>&nbsp;&nbsp;';
+            }
+            else delta = "";
+        }
         
         $.each(data.statewise,function(id,obj){
             if(id > 0){
-                $('tbody').append('<tr class="font-theme-med color-grey new-state"><td class="text-left state py-2 pl-2"><span class="fa fa-caret-right"></span><span class="state-name">' + obj.state + '</span></td><td class="text-right py-2"><!--<small class="color-theme"><i class="fa fa-arrow-up"></i>'+ obj.deltaconfirmed +'</small>&nbsp;--><span class="total">'+   obj.confirmed +'</span></td><td class="text-right py-2"><span class="active">'+ obj.active +'</span></td><td class="text-right py-2"><span class="recovered">'+ obj.recovered +'</span></td><td class="text-right py-2 pr-2"><span class="deceased">'+ obj.deaths +'</span></td><br/></tr>');
+                
+                difference(obj.deltaconfirmed);
+                $('tbody').append('<tr class="font-theme-med color-grey new-state"><td class="text-left state py-2 pl-2"><span class="fa fa-caret-right"></span><span class="state-name">' + obj.state + '</span></td><td class="text-right py-2">'+ delta +'<span class="total">'+   obj.confirmed +'</span></td><td class="text-right py-2"><span class="active">'+ obj.active +'</span></td><td class="text-right py-2"><span class="recovered">'+ obj.recovered +'</span></td><td class="text-right py-2 pr-2"><span class="deceased">'+ obj.deaths +'</span></td><br/></tr>');
             }
         });
         
@@ -1013,13 +1022,6 @@ $(document).ready(function(){
                 $(this).parents('tr').addClass('bg-light');
                 $(this).parents('tr').next().before('<tr class="font-theme-bold color-grey state-dist"><td class="text-left py-2" colspan="1">Districts</td><td class="text-right py-2">Confirmed</td></tr>');
                 
-                var delta = '';
-                function difference(number){
-                    if(number > 0){
-                        delta = '<small class="color-theme"><i class="fa fa-arrow-up"></i>'+ number +'</small>&nbsp;&nbsp;';
-                    }
-                    else delta = "";
-                }
                 for(var dist in state_districts[0]){
                     
                     difference(district_delta_confirmed[dist]);
