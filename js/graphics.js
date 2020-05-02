@@ -21,7 +21,7 @@ $(document).ready(function(){
     if(window.innerWidth < 475){
         $('.block-1 ,line, .block-1 .doughnut').css({'flex': '0 0 ' + (window.innerWidth/475)*475 +'px', 'max-width': window.innerWidth/475*475 +'px' });
         
-        $('.block-2 table th').eq(1).text('Cnfrmd');
+        $('.block-2 table th').eq(1).text('Confirm');
         $('.block-2 table th').eq(2).text('Actv');
         $('.block-2 table th').eq(3).text('Rcvrd');
         $('.block-2 table th').eq(4).text('Dcsd');
@@ -474,7 +474,7 @@ $(document).ready(function(){
         var delta = '';
         function difference(number){
             if(number > 0){
-                delta = '<small class="color-theme"><i class="fa fa-arrow-up"></i>'+ number +'</small>&nbsp;&nbsp;';
+                delta = '<span><small class="color-theme">+'+ number +'</small>&nbsp;&nbsp;</span>';
             }
             else delta = "";
         }
@@ -483,7 +483,7 @@ $(document).ready(function(){
             if(id > 0){
                 
                 difference(obj.deltaconfirmed);
-                $('tbody').append('<tr class="font-theme-med color-grey new-state"><td class="text-left state py-2 pl-2"><span class="fa fa-caret-right"></span><span class="state-name">' + obj.state + '</span></td><td class="text-right py-2">'+ delta +'<span class="total">'+   obj.confirmed +'</span></td><td class="text-right py-2"><span class="active">'+ obj.active +'</span></td><td class="text-right py-2"><span class="recovered">'+ obj.recovered +'</span></td><td class="text-right py-2 pr-2"><span class="deceased">'+ obj.deaths +'</span></td><br/></tr>');
+                $('tbody').append('<tr class="font-theme-med color-grey new-state"><td class="text-left state py-2 pl-2"><span class="fa fa-caret-right"></span><span class="state-name">' + obj.state + '</span></td><td class="text-right py-2">'+ delta +'<span class="total">'+ obj.confirmed +'</span></td><td class="text-right py-2"><span class="active">'+ obj.active +'</span></td><td class="text-right py-2"><span class="recovered">'+ obj.recovered +'</span></td><td class="text-right py-2 pr-2"><span class="deceased">'+ obj.deaths +'</span></td><br/></tr>');
             }
         });
         
@@ -988,7 +988,7 @@ $(document).ready(function(){
                 $(this).parents('tr').removeClass('bg-light');
                 
                 if(window.innerWidth < 475){
-                    $('.block-2 .graphs').css('transform', 'translateY(-500px)');
+                    $('.block-2 .graphs').css('transform', 'translateY( -'+ ($('table').height()*(.9 - (window.innerWidth/590))) +'px)');
                 }
             }
             else{
