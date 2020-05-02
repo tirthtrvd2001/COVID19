@@ -21,7 +21,7 @@ $(document).ready(function(){
     if(window.innerWidth < 475){
         $('.block-1 ,line, .block-1 .doughnut').css({'flex': '0 0 ' + (window.innerWidth/475)*475 +'px', 'max-width': window.innerWidth/475*475 +'px' });
         
-        $('.block-2 table th').eq(1).text('Cnfmd');
+        $('.block-2 table th').eq(1).text('Cnfrmd');
         $('.block-2 table th').eq(2).text('Actv');
         $('.block-2 table th').eq(3).text('Rcvrd');
         $('.block-2 table th').eq(4).text('Dcsd');
