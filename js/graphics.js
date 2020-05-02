@@ -988,7 +988,7 @@ $(document).ready(function(){
                 $(this).parents('tr').removeClass('bg-light');
                 
                 if(window.innerWidth < 475){
-                    $('.block-2 .graphs').css('transform', 'translateY( -'+ ($('table').height()*(.9 - (window.innerWidth/590))) +'px)');
+                    $('.block-2 .graphs').css('transform', 'translateY( -'+ ($('table').height()*(.8 - (window.innerWidth/590))) +'px)');
                 }
             }
             else{
