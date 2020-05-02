@@ -96,7 +96,7 @@ table tr.state-dist{transform: translateX(1rem)}
     canvas#doughnut{transform: scale(.6) translateY(55px);}
     
     .block-2{margin-top: 0px !important;}
-    
+    .block-2 table td small{font-size: 16px}
     .block-2 table td{font-size: 18px}
     .block-2 table th{font-size: 20px}
     .block-2 table th:nth-of-type(2){padding-left: 50px !important}
